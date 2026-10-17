@@ -1,0 +1,10 @@
+@use '../abstracts' as *;
+@layer components {
+  .hero { padding-block: $space-6 $space-5; }
+  .hero__title { max-width: 16ch; }
+  .hero__lede { font-size: $step-1; margin-top: $space-4; max-width: 46ch; color: var(--muted); }
+  .hero__actions { display: flex; flex-wrap: wrap; gap: $space-3; margin-top: $space-4; }
+  .btn { display: inline-block; font: 700 1rem $font-ui; padding: .7rem 1.2rem; background: var(--teal); color: #fff; border: 2px solid var(--teal); text-decoration: none; border-radius: 3px; cursor: pointer;
+    &:hover { background: $teal-ink; color: #fff; }
+    &--ghost { background: transparent; color: var(--teal); &:hover { background: var(--teal); } } }
+}

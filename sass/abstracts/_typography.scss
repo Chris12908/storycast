@@ -1,0 +1,7 @@
+$font-text: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+$font-ui:   'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+// Perfect-fourth-ish scale
+$step-0: 1.125rem;
+$step-1: 1.35rem;
+$step-2: 1.8rem;
+$step-3: clamp(2.2rem, 1.4rem + 3.6vw, 4rem);

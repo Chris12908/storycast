@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 260" role="img" aria-labelledby="t d" font-family="Arial,sans-serif" font-size="15">
+<title id="t">StoryCast sitemap</title><desc id="d">Home links to the story pages and About. Stories link to each other and back to Home.</desc>
+<rect width="640" height="260" fill="#f3f5f8"/>
+<g fill="#fff" stroke="#1b2540" stroke-width="2"><rect x="240" y="20" width="160" height="50"/><rect x="60" y="170" width="160" height="50"/><rect x="240" y="170" width="160" height="50"/><rect x="420" y="170" width="160" height="50"/></g>
+<g stroke="#1b2540" stroke-width="2"><path d="M320 70V120M140 120H500M140 120V170M320 120V170M500 120V170"/></g>
+<g fill="#1b2540" text-anchor="middle"><text x="320" y="50">Home (index.html)</text><text x="140" y="200">Story: ferry</text><text x="320" y="200">Story: bells</text><text x="500" y="200">About and access</text></g>
+<text x="320" y="248" text-anchor="middle" fill="#4a5470" font-size="13">Stories also link to each other (related) and back to Home. All pages share the main nav.</text>
+</svg>

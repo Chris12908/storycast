@@ -1,0 +1,7 @@
+@layer reset {
+  *, *::before, *::after { box-sizing: border-box; }
+  * { margin: 0; }
+  img, video, audio { display: block; max-width: 100%; }
+  button { font: inherit; color: inherit; }
+  ul[class], ol[class] { list-style: none; padding: 0; }
+}

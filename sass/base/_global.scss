@@ -1,0 +1,29 @@
+@use '../abstracts' as *;
+@layer base {
+  :root {
+    --ink: #{$ink}; --muted: #{$muted}; --paper: #{$paper}; --surface: #{$surface};
+    --teal: #{$teal}; --signal: #{$signal}; --line: #{$line};
+  }
+  html { scroll-padding-top: 5rem; }
+  body {
+    font: #{$step-0}/1.65 #{$font-text};
+    color: var(--ink); background: var(--paper);
+    min-height: 100vh; display: flex; flex-direction: column;
+  }
+  main { flex: 1; }
+  h1, h2, h3 { font-family: $font-ui; line-height: 1.15; letter-spacing: -.015em; }
+  h1 { font-size: $step-3; font-weight: 800; }
+  h2 { font-size: $step-2; font-weight: 700; margin-block: $space-5 $space-3; }
+  h3 { font-size: $step-1; font-weight: 700; }
+  p + p { margin-top: $space-3; }
+  p, li { max-width: $measure; }
+  a { color: var(--teal); text-underline-offset: .2em; }
+  a:hover { color: $teal-ink; text-decoration-thickness: 2px; }
+  :focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; box-shadow: 0 0 0 6px var(--signal); }
+  .skip-link {
+    position: absolute; left: $space-3; top: -4rem; z-index: 10;
+    background: var(--ink); color: var(--paper); padding: $space-2 $space-3; font-family: $font-ui;
+    &:focus { top: $space-3; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+}

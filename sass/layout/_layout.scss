@@ -1,0 +1,20 @@
+@use '../abstracts' as *;
+@layer layout {
+  .wrap { width: min(100% - 2rem, 72rem); margin-inline: auto; }
+  .site-header { background: var(--surface); border-bottom: 2px solid var(--ink); }
+  .site-header__inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: $space-3; padding-block: $space-3; }
+  .site-header__brand { font: 800 1.4rem $font-ui; color: var(--ink); text-decoration: none; }
+  .site-footer { background: var(--ink); color: var(--paper); padding-block: $space-5; margin-top: $space-6; font-family: $font-ui; font-size: .95rem;
+    a { color: var(--paper); } }
+  .section { padding-block: $space-4; }
+  .stories { display: grid; gap: $space-4; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); }
+  .stories__item { container-type: inline-size; container-name: story-slot; }
+  .story-layout { display: grid; gap: $space-5; @media (min-width: $bp-wide) { grid-template-columns: minmax(0, 1fr) 19rem; align-items: start; } }
+  .two-col { display: grid; gap: $space-4; @media (min-width: $bp-wide) { grid-template-columns: 1fr 1fr; } }
+}
+
+@layer layout {
+  .split { display: grid; gap: $space-5; align-items: center; @media (min-width: $bp-wide) { grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); } }
+  .eyebrow { font: 700 1rem $font-ui; color: var(--teal); margin-bottom: $space-2; }
+  .related-list { display: grid; gap: $space-3; }
+}

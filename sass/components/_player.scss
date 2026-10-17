@@ -1,0 +1,33 @@
+@use '../abstracts' as *;
+@layer components {
+  .player { background: var(--surface); border: 2px solid var(--ink); padding: $space-3;
+    video, audio { width: 100%; } video { background: #000; aspect-ratio: 16/9; } }
+  .player__caption { font: .95rem $font-ui; color: var(--muted); margin-top: $space-2; }
+  .story-head { padding-block: $space-5 $space-4; }
+  .story-head__meta { font: 1rem $font-ui; color: var(--muted); margin-top: $space-3; }
+  .transcript { border-top: 2px solid var(--ink); }
+  .transcript__list { display: grid; gap: $space-2; }
+  .cue { display: grid; grid-template-columns: 4.5rem 1fr; gap: $space-3; width: 100%; text-align: left; background: none; border: 0; border-left: 5px solid transparent; padding: $space-2 $space-3; cursor: pointer;
+    &:hover { background: var(--surface); }
+    &[aria-current='true'] { background: var(--surface); border-left-color: var(--signal); } }
+  .cue__time { font: 700 .95rem $font-ui; color: var(--teal); padding-top: .2rem; }
+  .related { display: grid; gap: $space-3; }
+  .related__link { display: block; padding: $space-3; background: var(--surface); border: 2px solid var(--ink); color: var(--ink); text-decoration: none; font-family: $font-ui; font-weight: 700;
+    &:hover { background: var(--ink); color: var(--paper); } }
+  .access-list { display: grid; gap: $space-3; padding-left: $space-4; li { padding-left: $space-2; } }
+  .kbd { font: 700 .9rem $font-ui; border: 2px solid var(--ink); border-radius: 3px; padding: 0 .35rem; background: var(--surface); }
+}
+
+@layer components {
+  .breadcrumb { display: flex; flex-wrap: wrap; gap: $space-2; padding: 0; margin: 0; list-style: none;
+    li + li::before { content: '/'; margin-right: $space-2; color: var(--muted); } }
+  .get-involved { margin-top: $space-5; padding: $space-5; background: var(--surface); border: 2px solid var(--ink); }
+  .story-layout .figure { margin-bottom: $space-4; }
+}
+
+@layer components {
+  // YouTube Short embed: vertical 9:16, centred, never wider than the column
+  .player--embed { padding: $space-3; }
+  .player__embed { aspect-ratio: 9 / 16; width: min(100%, 21rem); margin-inline: auto; background: var(--ink);
+    iframe { display: block; width: 100%; height: 100%; border: 0; } }
+}

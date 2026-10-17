@@ -1,0 +1,9 @@
+// Contrast measured against $paper / $surface (WCAG 2.1 AA)
+$ink:      #1b2540; // body text      ~14:1
+$muted:    #4a5470; // secondary text ~6.9:1
+$paper:    #f3f5f8; // page background
+$surface:  #ffffff;
+$teal:     #0a5c63; // links, accents ~7.4:1
+$teal-ink: #073f44; // hover
+$signal:   #f2b705; // playhead / highlight (never used as text on light)
+$line:     #c9d0dc;

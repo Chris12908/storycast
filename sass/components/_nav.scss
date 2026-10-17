@@ -1,0 +1,7 @@
+@use '../abstracts' as *;
+@layer components {
+  .nav__list { display: flex; flex-wrap: wrap; gap: $space-2 $space-4; font-family: $font-ui; font-weight: 600; }
+  .nav__link { color: var(--ink); text-decoration: none; padding-block: $space-2; border-bottom: 3px solid transparent;
+    &:hover { border-color: var(--line); color: var(--ink); }
+    &[aria-current='page'] { border-color: var(--teal); } }
+}

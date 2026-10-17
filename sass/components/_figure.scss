@@ -1,0 +1,13 @@
+@use '../abstracts' as *;
+@layer components {
+  .figure { margin: 0; }
+  .figure__frame { aspect-ratio: 4 / 3; overflow: hidden; border: 2px solid var(--ink); background: var(--ink); }
+  .figure--wide .figure__frame { aspect-ratio: 3 / 1; @media (max-width: 40rem) { aspect-ratio: 16 / 9; } }
+  .figure__img { width: 100%; height: 100%; object-fit: cover;
+    &--mic { object-position: 50% 48%; }
+    &--ferry { object-position: 50% 62%; }
+    &--plaza { object-position: 50% 40%; } }
+  .figure__caption { font: .95rem $font-ui; color: var(--muted); margin-top: $space-2; }
+  .band { background: var(--surface); border-block: 2px solid var(--ink); padding-block: $space-5; margin-top: $space-5; }
+  .band__text { color: var(--muted); }
+}

@@ -1,0 +1,509 @@
+@layer reset, base, layout, components, utilities;
+@layer reset {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  * {
+    margin: 0;
+  }
+  img, video, audio {
+    display: block;
+    max-width: 100%;
+  }
+  button {
+    font: inherit;
+    color: inherit;
+  }
+  ul[class], ol[class] {
+    list-style: none;
+    padding: 0;
+  }
+}
+@layer base {
+  :root {
+    --ink: #1b2540;
+    --muted: #4a5470;
+    --paper: #f3f5f8;
+    --surface: #ffffff;
+    --teal: #0a5c63;
+    --signal: #f2b705;
+    --line: #c9d0dc;
+  }
+  html {
+    scroll-padding-top: 5rem;
+  }
+  body {
+    font: 1.125rem/1.65 Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif;
+    color: var(--ink);
+    background: var(--paper);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  main {
+    flex: 1;
+  }
+  h1, h2, h3 {
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+  }
+  h1 {
+    font-size: clamp(2.2rem, 1.4rem + 3.6vw, 4rem);
+    font-weight: 800;
+  }
+  h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-block: 2.5rem 1rem;
+  }
+  h3 {
+    font-size: 1.35rem;
+    font-weight: 700;
+  }
+  p + p {
+    margin-top: 1rem;
+  }
+  p, li {
+    max-width: 64ch;
+  }
+  a {
+    color: var(--teal);
+    text-underline-offset: 0.2em;
+  }
+  a:hover {
+    color: #073f44;
+    text-decoration-thickness: 2px;
+  }
+  :focus-visible {
+    outline: 3px solid var(--ink);
+    outline-offset: 3px;
+    box-shadow: 0 0 0 6px var(--signal);
+  }
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -4rem;
+    z-index: 10;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 0.5rem 1rem;
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  }
+  .skip-link:focus {
+    top: 1rem;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation: none !important;
+      transition: none !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+@layer layout {
+  .wrap {
+    width: min(100% - 2rem, 72rem);
+    margin-inline: auto;
+  }
+  .site-header {
+    background: var(--surface);
+    border-bottom: 2px solid var(--ink);
+  }
+  .site-header__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-block: 1rem;
+  }
+  .site-header__brand {
+    font: 800 1.4rem "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .site-footer {
+    background: var(--ink);
+    color: var(--paper);
+    padding-block: 2.5rem;
+    margin-top: 4rem;
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.95rem;
+  }
+  .site-footer a {
+    color: var(--paper);
+  }
+  .section {
+    padding-block: 1.5rem;
+  }
+  .stories {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+  }
+  .stories__item {
+    container-type: inline-size;
+    container-name: story-slot;
+  }
+  .story-layout {
+    display: grid;
+    gap: 2.5rem;
+  }
+  @media (min-width: 60rem) {
+    .story-layout {
+      grid-template-columns: minmax(0, 1fr) 19rem;
+      align-items: start;
+    }
+  }
+  .two-col {
+    display: grid;
+    gap: 1.5rem;
+  }
+  @media (min-width: 60rem) {
+    .two-col {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+@layer layout {
+  .split {
+    display: grid;
+    gap: 2.5rem;
+    align-items: center;
+  }
+  @media (min-width: 60rem) {
+    .split {
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+    }
+  }
+  .eyebrow {
+    font: 700 1rem "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    color: var(--teal);
+    margin-bottom: 0.5rem;
+  }
+  .related-list {
+    display: grid;
+    gap: 1rem;
+  }
+}
+@layer components {
+  .nav__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    font-weight: 600;
+  }
+  .nav__link {
+    color: var(--ink);
+    text-decoration: none;
+    padding-block: 0.5rem;
+    border-bottom: 3px solid transparent;
+  }
+  .nav__link:hover {
+    border-color: var(--line);
+    color: var(--ink);
+  }
+  .nav__link[aria-current=page] {
+    border-color: var(--teal);
+  }
+}
+@layer components {
+  .hero {
+    padding-block: 4rem 2.5rem;
+  }
+  .hero__title {
+    max-width: 16ch;
+  }
+  .hero__lede {
+    font-size: 1.35rem;
+    margin-top: 1.5rem;
+    max-width: 46ch;
+    color: var(--muted);
+  }
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .btn {
+    display: inline-block;
+    font: 700 1rem "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    padding: 0.7rem 1.2rem;
+    background: var(--teal);
+    color: #fff;
+    border: 2px solid var(--teal);
+    text-decoration: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  .btn:hover {
+    background: #073f44;
+    color: #fff;
+  }
+  .btn--ghost {
+    background: transparent;
+    color: var(--teal);
+  }
+  .btn--ghost:hover {
+    background: var(--teal);
+  }
+}
+@layer components {
+  .media-card {
+    display: grid;
+    background: var(--surface);
+    border: 2px solid var(--ink);
+    height: 100%;
+    overflow: hidden;
+  }
+  .media-card__media {
+    position: relative;
+    aspect-ratio: 16/9;
+    background: var(--ink);
+  }
+  .media-card__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .media-card__img--ferry {
+    object-position: 50% 62%;
+  }
+  .media-card__img--market {
+    object-position: 50% 68%;
+  }
+  .media-card__badge {
+    position: absolute;
+    left: 0.6rem;
+    bottom: 0.6rem;
+    background: var(--ink);
+    color: var(--paper);
+    font: 700 0.85rem "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    padding: 0.15rem 0.6rem;
+    border-radius: 3px;
+  }
+  .media-card__body {
+    display: grid;
+    gap: 0.5rem;
+    align-content: start;
+    padding: 1.5rem;
+  }
+  .media-card__title {
+    font-size: 1.35rem;
+  }
+  .media-card__title a {
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .media-card__title a:hover {
+    text-decoration: underline;
+  }
+  .media-card__meta {
+    font: 0.9rem "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    color: var(--muted);
+  }
+  .media-card__cta {
+    font: 700 1rem "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  }
+  @container story-slot (min-width: 34rem) {
+    .media-card {
+      grid-template-columns: 11rem 1fr;
+    }
+    .media-card__media {
+      aspect-ratio: auto;
+      min-height: 100%;
+    }
+  }
+  @container story-slot (max-width: 20rem) {
+    .media-card__body {
+      padding: 1rem;
+    }
+    .media-card__title {
+      font-size: 1.15rem;
+    }
+  }
+}
+@layer components {
+  .player {
+    background: var(--surface);
+    border: 2px solid var(--ink);
+    padding: 1rem;
+  }
+  .player video, .player audio {
+    width: 100%;
+  }
+  .player video {
+    background: #000;
+    aspect-ratio: 16/9;
+  }
+  .player__caption {
+    font: 0.95rem "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    color: var(--muted);
+    margin-top: 0.5rem;
+  }
+  .story-head {
+    padding-block: 2.5rem 1.5rem;
+  }
+  .story-head__meta {
+    font: 1rem "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    color: var(--muted);
+    margin-top: 1rem;
+  }
+  .transcript {
+    border-top: 2px solid var(--ink);
+  }
+  .transcript__list {
+    display: grid;
+    gap: 0.5rem;
+  }
+  .cue {
+    display: grid;
+    grid-template-columns: 4.5rem 1fr;
+    gap: 1rem;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: 0;
+    border-left: 5px solid transparent;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+  }
+  .cue:hover {
+    background: var(--surface);
+  }
+  .cue[aria-current=true] {
+    background: var(--surface);
+    border-left-color: var(--signal);
+  }
+  .cue__time {
+    font: 700 0.95rem "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    color: var(--teal);
+    padding-top: 0.2rem;
+  }
+  .related {
+    display: grid;
+    gap: 1rem;
+  }
+  .related__link {
+    display: block;
+    padding: 1rem;
+    background: var(--surface);
+    border: 2px solid var(--ink);
+    color: var(--ink);
+    text-decoration: none;
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    font-weight: 700;
+  }
+  .related__link:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .access-list {
+    display: grid;
+    gap: 1rem;
+    padding-left: 1.5rem;
+  }
+  .access-list li {
+    padding-left: 0.5rem;
+  }
+  .kbd {
+    font: 700 0.9rem "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    border: 2px solid var(--ink);
+    border-radius: 3px;
+    padding: 0 0.35rem;
+    background: var(--surface);
+  }
+}
+@layer components {
+  .breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  .breadcrumb li + li::before {
+    content: "/";
+    margin-right: 0.5rem;
+    color: var(--muted);
+  }
+  .get-involved {
+    margin-top: 2.5rem;
+    padding: 2.5rem;
+    background: var(--surface);
+    border: 2px solid var(--ink);
+  }
+  .story-layout .figure {
+    margin-bottom: 1.5rem;
+  }
+}
+@layer components {
+  .player--embed {
+    padding: 1rem;
+  }
+  .player__embed {
+    aspect-ratio: 9/16;
+    width: min(100%, 21rem);
+    margin-inline: auto;
+    background: var(--ink);
+  }
+  .player__embed iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+}
+@layer components {
+  .figure {
+    margin: 0;
+  }
+  .figure__frame {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    border: 2px solid var(--ink);
+    background: var(--ink);
+  }
+  .figure--wide .figure__frame {
+    aspect-ratio: 3/1;
+  }
+  @media (max-width: 40rem) {
+    .figure--wide .figure__frame {
+      aspect-ratio: 16/9;
+    }
+  }
+  .figure__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .figure__img--mic {
+    object-position: 50% 48%;
+  }
+  .figure__img--ferry {
+    object-position: 50% 62%;
+  }
+  .figure__img--plaza {
+    object-position: 50% 40%;
+  }
+  .figure__caption {
+    font: 0.95rem "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    color: var(--muted);
+    margin-top: 0.5rem;
+  }
+  .band {
+    background: var(--surface);
+    border-block: 2px solid var(--ink);
+    padding-block: 2.5rem;
+    margin-top: 2.5rem;
+  }
+  .band__text {
+    color: var(--muted);
+  }
+}
