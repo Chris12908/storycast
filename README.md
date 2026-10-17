@@ -3,7 +3,7 @@
 A three-page accessible microsite for short audio and video stories. Plain HTML, Sass compiled to CSS, and one small vanilla JavaScript file. No frameworks.
 
 - **Design (Figma):** https://www.figma.com/design/gd9w4Tud8Ndn10p4WmwVnF (pages: *Sitemap and hi-fi mockups*, *Wireframes*)
-- **Early wireframe prototype:** https://storycast-accessible-layout.lovable.app
+
 
 ## Pages
 
@@ -68,9 +68,7 @@ python3 -m http.server 8000                 # serve, then open http://localhost:
 | 2.3.3 | Motion | Animation is disabled under `prefers-reduced-motion` |
 | 4.1.2 | Name, role, value | `aria-current="page"`, `aria-label` on the nav, `aria-labelledby` on sections; ARIA only where HTML is not enough |
 
-## Testing
 
-Run during development: contrast calculation for every colour pair, a script checking landmarks, heading order, `alt` text, duplicate ids and broken local links, and the html-validate linter (no errors). Record your own Lighthouse, WAVE or axe scores and keyboard and screen-reader notes in `docs/StoryCast_Documentation.pdf`.
 
 ## Media and image notes
 
